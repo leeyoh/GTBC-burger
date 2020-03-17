@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col  mx-auto text-center">
+			<img src="images/burger.png" alt="Flowers"style="width: 400px">
+		</div>
+
+	</div>
+</div>
+</div>
+	<div class = "row"> 
+		<div class = "col-md-3 offset-md-3"> 
+			{{#each index}}
+			{{#unless devoured}}
+			<li>
+				<p>Type: {{burger_name}}
+					<button type="button" class="devour btn btn-primary" id={{id}}>Devour </button>
+				</p>
+			</li>
+			{{/unless}}
+			{{/each}}	
+		</div> 
+		<div class = "col-md-3 offset-md-3"> 
+			{{#each index}}
+			{{#if devoured}}
+			<li>
+				<p>Type: {{burger_name}}
+					<button type="button" class="delete btn btn-primary" id={{id}}>Delete </button>
+				</p>
+			</li>
+			{{/if}}
+			{{/each}}	
+		</div> 
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-4">
+			<form id="burger-form">
+				<div class="form-group">
+					<label for="title">Burger Name</label>
+					<input placeholder="" type="text" class="form-control" id="title">
+					<br />
+					<br />
+					<button type="submit" class="btn btn-success submit">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
