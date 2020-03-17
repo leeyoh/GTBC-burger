@@ -8,10 +8,13 @@ const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 let db = {};
 
+
+let sequelize;
+
 if (process.env.JAWSDB_URL){
   sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  let sequelize;
+  
     sequelize = new Sequelize(
       config.database, 
       config.username, 
@@ -25,7 +28,7 @@ fs
     return (file.indexOf(".") !== 0) && (file !== basename) && (file.slice(-3) === ".js");
   })
   .forEach(function(file) {
-    console.log(file)
+
     let model = sequelize["import"](path.join(__dirname, file));
     db[model.name] = model;
   });
